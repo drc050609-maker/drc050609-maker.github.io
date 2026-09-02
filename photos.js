@@ -1,4 +1,16 @@
 window.BIRTHDAY_PHOTOS = [
-  // Photos will be added here, for example:
-  // { src: "photos/sunset.jpg", caption: "That evening" },
+  { src: "photos/01-formal.jpg", caption: "Our time together" },
+  { src: "photos/02-festival.jpg", caption: "Our time together" },
+  { src: "photos/03-hanfu.jpg", caption: "Our time together" },
+  { src: "videos/clip-1.mp4", poster: "videos/clip-1.jpg", caption: "A little clip of us", type: "video" },
+  { src: "photos/04-studio.png", caption: "Our time together" },
+  { src: "photos/05-mics.png", caption: "Our time together" },
+  { src: "videos/clip-2.mp4", poster: "videos/clip-2.jpg", caption: "A little clip of us", type: "video" },
+  { src: "photos/06-stage.jpg", caption: "Our time together" },
+  { src: "photos/07-funny.jpg", caption: "Our time together" },
+  { src: "videos/clip-3.mp4", poster: "videos/clip-3.jpg", caption: "A little clip of us", type: "video" },
+  { src: "photos/08-friends.jpg", caption: "Our time together" },
+  { src: "photos/09-outdoors.jpg", caption: "Our time together" },
+  { src: "videos/clip-4.mp4", poster: "videos/clip-4.jpg", caption: "A little clip of us", type: "video" },
+  { src: "photos/10-selfie.jpg", caption: "Our time together" },
 ];

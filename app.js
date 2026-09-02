@@ -50,6 +50,7 @@ const gallery = document.getElementById("gallery");
 const memories = document.getElementById("memories");
 const lightbox = document.getElementById("lightbox");
 const lightboxImage = document.getElementById("lightbox-image");
+const lightboxVideo = document.getElementById("lightbox-video");
 const lightboxCaption = document.getElementById("lightbox-caption");
 const canvas = document.getElementById("confetti");
 const ctx = canvas.getContext("2d");
@@ -69,7 +70,7 @@ function resizeCanvas() {
 }
 
 function burstConfetti() {
-  const colors = ["#e0b56a", "#f6d7d2", "#fff6ea", "#c45c6a", "#f3efe6"];
+  const colors = ["#fff8e8", "#ffd54a", "#d4485a", "#f0b429", "#ffffff"];
   for (let i = 0; i < 140; i += 1) {
     pieces.push({
       x: window.innerWidth / 2,
@@ -207,34 +208,63 @@ function renderPhotos() {
     return;
   }
   memories.hidden = false;
-  document.querySelector(".note").textContent =
-    "Today is yours. Here is a song, just for you, and the pictures of our time together.";
   gallery.replaceChildren();
   PHOTOS.forEach((photo, index) => {
     const button = document.createElement("button");
     button.className = "polaroid";
     button.type = "button";
-    const img = document.createElement("img");
-    img.src = photo.src;
-    img.alt = photo.caption || `Memory ${index + 1}`;
+    const isVideo = photo.type === "video";
+    const media = document.createElement("img");
+    media.src = isVideo ? photo.poster || photo.src : photo.src;
+    media.alt = photo.caption || `Memory ${index + 1}`;
+    button.append(media);
+    if (isVideo) {
+      const badge = document.createElement("span");
+      badge.className = "play-badge";
+      badge.textContent = "▶";
+      button.append(badge);
+    }
     const caption = document.createElement("span");
-    caption.textContent = photo.caption || "Our time together";
-    button.append(img, caption);
-    button.addEventListener("click", () => openLightbox(photo, img.alt));
+    caption.textContent = photo.caption || (isVideo ? "A little clip of us" : "Our time together");
+    button.append(caption);
+    button.addEventListener("click", () => openLightbox(photo, media.alt || caption.textContent));
     gallery.append(button);
   });
 }
 
+function pauseBirthdaySong() {
+  if (!audio || paused) return;
+  paused = true;
+  audio.suspend();
+  musicBtn.classList.add("is-paused");
+  musicLabel.textContent = "Play";
+}
+
 function openLightbox(photo, alt) {
-  lightboxImage.src = photo.src;
-  lightboxImage.alt = alt;
+  const isVideo = photo.type === "video";
+  lightboxImage.hidden = isVideo;
+  lightboxVideo.hidden = !isVideo;
+  if (isVideo) {
+    pauseBirthdaySong();
+    lightboxImage.removeAttribute("src");
+    lightboxVideo.preload = "auto";
+    lightboxVideo.src = photo.src;
+    lightboxVideo.play().catch(() => {});
+  } else {
+    lightboxVideo.pause();
+    lightboxVideo.removeAttribute("src");
+    lightboxImage.src = photo.src;
+    lightboxImage.alt = alt;
+  }
   lightboxCaption.textContent = photo.caption || "";
   lightbox.hidden = false;
 }
 
 function closeLightbox() {
   lightbox.hidden = true;
-  lightboxImage.src = "";
+  lightboxImage.removeAttribute("src");
+  lightboxVideo.pause();
+  lightboxVideo.removeAttribute("src");
 }
 
 function openCard() {

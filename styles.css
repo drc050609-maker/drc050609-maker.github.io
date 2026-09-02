@@ -1,12 +1,12 @@
 :root {
-  --wine: #3b1020;
-  --rose: #9a2f4a;
-  --blush: #f6d7d2;
-  --gold: #e0b56a;
-  --cream: #fbf6ef;
-  --ink: #2c1812;
-  --paper: rgba(255, 248, 240, 0.12);
-  color-scheme: dark;
+  --yellow: #ffd54a;
+  --yellow-deep: #f5c116;
+  --cream: #fff8e8;
+  --ink: #3b2408;
+  --rose: #d4485a;
+  --gold: #b8860b;
+  --paper: rgba(255, 255, 255, 0.55);
+  color-scheme: light;
 }
 
 * {
@@ -23,10 +23,10 @@ body {
 body {
   font-family: "Outfit", system-ui, sans-serif;
   background:
-    radial-gradient(circle at 20% 10%, rgba(224, 181, 106, 0.18), transparent 32%),
-    radial-gradient(circle at 80% 0%, rgba(154, 47, 74, 0.35), transparent 36%),
-    linear-gradient(180deg, #1a0810 0%, var(--wine) 42%, #12070c 100%);
-  color: var(--cream);
+    radial-gradient(circle at 18% 8%, rgba(255, 255, 255, 0.7), transparent 34%),
+    radial-gradient(circle at 88% 12%, rgba(255, 140, 90, 0.28), transparent 32%),
+    linear-gradient(180deg, #ffe36a 0%, var(--yellow) 42%, #f3b92d 100%);
+  color: var(--ink);
   overflow-x: hidden;
 }
 
@@ -43,13 +43,13 @@ body {
 .glow-a {
   top: -8%;
   left: -10%;
-  background: rgba(224, 181, 106, 0.22);
+  background: rgba(255, 255, 255, 0.45);
 }
 
 .glow-b {
   right: -12%;
   bottom: 8%;
-  background: rgba(154, 47, 74, 0.28);
+  background: rgba(255, 110, 70, 0.22);
 }
 
 #confetti {
@@ -83,7 +83,8 @@ body {
   letter-spacing: 0.28em;
   text-transform: uppercase;
   font-size: 0.72rem;
-  color: var(--gold);
+  color: #9a4b12;
+  font-weight: 600;
 }
 
 .gate-title {
@@ -93,8 +94,8 @@ body {
 }
 
 .gate-copy {
-  color: var(--blush);
-  opacity: 0.86;
+  color: #6d3b10;
+  opacity: 0.9;
 }
 
 .envelope {
@@ -102,13 +103,13 @@ body {
   width: min(220px, 62vw);
   height: 150px;
   margin: 0.6rem 0 0.2rem;
-  filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.35));
+  filter: drop-shadow(0 18px 30px rgba(120, 70, 0, 0.22));
 }
 
 .envelope-body {
   position: absolute;
   inset: 28px 0 0;
-  background: linear-gradient(180deg, #f7e7d2, #ecd2b0);
+  background: linear-gradient(180deg, #fff7ea, #f3ddb8);
   border-radius: 0 0 14px 14px;
   display: grid;
   place-items: center;
@@ -120,7 +121,7 @@ body {
   left: 0;
   width: 100%;
   height: 72px;
-  background: linear-gradient(180deg, #f3d7b5, #e4c39a);
+  background: linear-gradient(180deg, #fff1d4, #e8c68a);
   clip-path: polygon(0 0, 100% 0, 50% 100%);
   transform-origin: top center;
   z-index: 2;
@@ -132,11 +133,11 @@ body {
   border-radius: 50%;
   display: grid;
   place-items: center;
-  background: radial-gradient(circle at 35% 30%, #c94b4b, #7a1d2c 70%);
-  color: #f8e2b0;
+  background: radial-gradient(circle at 35% 30%, #e85d5d, #9a1d2c 70%);
+  color: #fff4c8;
   font-family: "Great Vibes", cursive;
   font-size: 2rem;
-  box-shadow: 0 8px 16px rgba(90, 16, 28, 0.35);
+  box-shadow: 0 8px 16px rgba(90, 16, 28, 0.28);
   z-index: 3;
 }
 
@@ -152,12 +153,12 @@ body {
   margin-top: 0.5rem;
   padding: 0.9rem 2.2rem;
   border-radius: 999px;
-  background: linear-gradient(180deg, var(--gold), #c8963f);
+  background: linear-gradient(180deg, #fff4c2, #f0b429);
   color: #3a2308;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  box-shadow: 0 10px 30px rgba(224, 181, 106, 0.28);
+  box-shadow: 0 10px 30px rgba(180, 100, 0, 0.22);
 }
 
 .gate.is-opening .envelope-flap {
@@ -179,7 +180,6 @@ body {
 
 .gate[hidden],
 .card[hidden],
-.gallery[hidden],
 .lightbox[hidden],
 .memories[hidden] {
   display: none;
@@ -207,27 +207,28 @@ body {
   padding: 0.55rem 0.9rem;
   border-radius: 999px;
   background: var(--paper);
-  color: var(--cream);
+  color: var(--ink);
   backdrop-filter: blur(12px);
+  box-shadow: 0 6px 18px rgba(120, 70, 0, 0.12);
 }
 
 .music-icon {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: var(--gold);
-  box-shadow: 0 0 0 0 rgba(224, 181, 106, 0.7);
+  background: var(--rose);
+  box-shadow: 0 0 0 0 rgba(212, 72, 90, 0.7);
   animation: pulse 1.4s infinite;
 }
 
 .music-btn.is-paused .music-icon {
   animation: none;
-  background: #c9b5ad;
+  background: #b59a72;
 }
 
 @keyframes pulse {
   70% {
-    box-shadow: 0 0 0 8px rgba(224, 181, 106, 0);
+    box-shadow: 0 0 0 8px rgba(212, 72, 90, 0);
   }
 }
 
@@ -242,8 +243,8 @@ body {
   font-size: clamp(3.4rem, 16vw, 7rem);
   font-weight: 400;
   line-height: 0.95;
-  color: #fff6ea;
-  text-shadow: 0 10px 40px rgba(0, 0, 0, 0.28);
+  color: #7a1f2b;
+  text-shadow: 0 8px 24px rgba(255, 255, 255, 0.35);
   margin: 0.4rem 0 0;
 }
 
@@ -251,7 +252,7 @@ body {
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: clamp(2.6rem, 12vw, 5.4rem);
   letter-spacing: 0.08em;
-  color: var(--gold);
+  color: #9a4b12;
   margin-top: -0.15rem;
 }
 
@@ -275,7 +276,7 @@ body {
   width: 8px;
   height: 26px;
   margin: 0 auto;
-  background: linear-gradient(180deg, #f3efe6, #d9c4a0);
+  background: linear-gradient(180deg, #fffaf0, #e8c68a);
   border-radius: 2px;
 }
 
@@ -283,7 +284,7 @@ body {
   width: 78px;
   height: 16px;
   margin: 0 auto;
-  background: #f4dfe0;
+  background: #fff4ea;
   border-radius: 40% 40% 12px 12px;
 }
 
@@ -291,9 +292,9 @@ body {
   width: 88px;
   height: 34px;
   margin: 0 auto;
-  background: linear-gradient(180deg, #c45c6a, #8e3144);
+  background: linear-gradient(180deg, #f07a86, #c44555);
   border-radius: 8px 8px 16px 16px;
-  box-shadow: inset 0 8px 0 rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 8px 0 rgba(255, 255, 255, 0.18);
 }
 
 @keyframes flicker {
@@ -303,20 +304,13 @@ body {
   }
 }
 
-.note,
-.empty,
-.footer p,
-.lyrics {
-  max-width: 34rem;
+.lyrics,
+.letter,
+.footer p {
+  max-width: 38rem;
   margin-left: auto;
   margin-right: auto;
   line-height: 1.65;
-}
-
-.note {
-  margin-top: 1.2rem;
-  color: var(--blush);
-  font-size: 1.05rem;
 }
 
 .lyrics {
@@ -325,7 +319,26 @@ body {
   font-family: "Cormorant Garamond", Georgia, serif;
   font-style: italic;
   font-size: 1.35rem;
-  color: var(--gold);
+  color: #9a4b12;
+}
+
+.letter {
+  margin: 1.6rem auto 0;
+  padding: 1.4rem 1.3rem 1.5rem;
+  background: rgba(255, 250, 240, 0.82);
+  border-radius: 18px;
+  box-shadow: 0 16px 40px rgba(140, 80, 0, 0.12);
+}
+
+.letter-title {
+  font-weight: 600;
+  font-size: 1.15rem;
+  margin-bottom: 0.9rem;
+  color: #8b1e2d;
+}
+
+.letter p + p {
+  margin-top: 0.9rem;
 }
 
 .memories {
@@ -333,21 +346,12 @@ body {
   max-width: 980px;
 }
 
-.memories h2,
-.empty {
-  text-align: center;
-}
-
 .memories h2 {
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 2rem;
   font-weight: 500;
   margin-bottom: 1.2rem;
-}
-
-.empty {
-  color: #e8c9c4;
-  opacity: 0.85;
+  text-align: center;
 }
 
 .gallery {
@@ -357,16 +361,17 @@ body {
 }
 
 .polaroid {
-  background: #f7efe4;
+  background: #fffaf0;
   color: var(--ink);
   padding: 0.7rem 0.7rem 1.5rem;
   border-radius: 4px;
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
+  box-shadow: 0 14px 30px rgba(120, 70, 0, 0.18);
   transform: rotate(var(--tilt, -1.5deg));
   cursor: pointer;
   border: 0;
   width: 100%;
   text-align: left;
+  position: relative;
 }
 
 .polaroid:nth-child(even) {
@@ -377,12 +382,13 @@ body {
   --tilt: -2.4deg;
 }
 
-.polaroid img {
+.polaroid img,
+.polaroid video {
   width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
   display: block;
-  background: #d7c4b4;
+  background: #f3ddb8;
 }
 
 .polaroid span {
@@ -392,34 +398,52 @@ body {
   font-size: 1.05rem;
 }
 
+.play-badge {
+  position: absolute;
+  top: 36%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(59, 36, 8, 0.72);
+  color: #fff8e8;
+  display: grid;
+  place-items: center;
+  font-size: 0.95rem;
+  pointer-events: none;
+}
+
 .footer {
   text-align: center;
   margin-top: 3rem;
-  color: var(--blush);
+  color: #6d3b10;
 }
 
 .lightbox {
   position: fixed;
   inset: 0;
   z-index: 20;
-  background: rgba(12, 4, 8, 0.92);
+  background: rgba(40, 22, 4, 0.92);
   display: grid;
   place-items: center;
   padding: 4rem 1rem 2rem;
 }
 
-.lightbox img {
+.lightbox img,
+.lightbox video {
   max-width: min(92vw, 820px);
   max-height: 72dvh;
   object-fit: contain;
   border-radius: 8px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+  background: #111;
 }
 
 .lightbox p {
   position: absolute;
   bottom: calc(1.2rem + env(safe-area-inset-bottom));
-  color: var(--blush);
+  color: #ffe9b8;
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 1.2rem;
 }
@@ -429,7 +453,7 @@ body {
   top: calc(0.9rem + env(safe-area-inset-top));
   right: 1rem;
   background: transparent;
-  color: var(--cream);
+  color: #fff8e8;
 }
 
 @media (min-width: 720px) {
